@@ -1,0 +1,14 @@
+@media screen and (max-width: 480px) {
+        .nav_search
+        {
+            width: 40px;
+        }
+        .search
+        {
+            width: 20px;
+        }
+        .categories
+        {
+            display: none;
+        }
+  }

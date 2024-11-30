@@ -12,27 +12,31 @@
     <link rel="stylesheet" href="css/mediaQuery.css">
 </head>
 <body>
+    <?php
+    $isUser = isset($_SESSION['user_id'])?? false;
+   if($isUser){
+    ?>
     <!-- Login modal -->
     <div class="modal fade" tabindex="-1" id="login">
         <div class="modal-dialog">
           <div class="modal-content">
             <h5 class="text-center mt-3">WELCOME BACK</h5>
             <div class="modal-body">
-                <form>
+                <form method="POST" action="php/login.php">
                     <div class="mb-3">
                       <label for="UserType" class="form-label">User Type</label>
-                      <select class="form-select" id="UserType">
+                      <select class="form-select" id="UserType" name="UserType">
                           <option value="Customer">Customer</option>
-                          <option value="admin">Admin</option>
+                          <option value="Admin">Admin</option>
                       </select>
                     </div>
                     <div class="mb-3">
                       <label for="PhoneNumber" class="form-label">Phone Number</label>
-                      <input type="number" class="form-control" id="PhoneNumber">
+                      <input type="number" class="form-control" id="PhoneNumber" name="phn">
                     </div>
                     <div class="mb-3">
                       <label for="password" class="form-label">Password</label>
-                      <input type="password" class="form-control" id="password">
+                      <input type="password" class="form-control" id="password" name="pass">
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -41,31 +45,66 @@
             </div>
             <div class="modal-footer">
               
-              if you don't have an account than sign up
+              <p>if you don't have an account than</p> <button class="btn btn-secondary"data-bs-toggle="modal" data-bs-target="#signup">sign up</button>
             </div>
           </div>
         </div>
       </div>
 
     <!-- singup modal  -->
-    <div class="modal" tabindex="-1" data-bs-toggle="modal" data-bs-target="signup">
+    <div class="modal" tabindex="-1" id="signup">
         <div class="modal-dialog">
           <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Modal title</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
             <div class="modal-body">
-              <p>Modal body text goes here.</p>
+                <form method="POST" action="php/signup.php">
+                    <div class="mb-3">
+                        <label for="Name" class="form-label">Name</label>
+                        <input type="text" name="name" class="form-control" id="name" required>
+                      </div>
+                    <div class="mb-3">
+                      <label for="PhoneNumber" class="form-label" required>Phone Number</label>
+                      <input type="number" name="phn" class="form-control" id="PhoneNumber">
+                    </div>
+                    <div class="mb-3">
+                      <label for="password" class="form-label" required>Password</label>
+                      <input type="password" name="pass" class="form-control" id="password">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  </form>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
+                <p>if you don't have an account than</p> <button class="btn btn-secondary"data-bs-toggle="modal" data-bs-target="#login">Login</button>
             </div>
           </div>
         </div>
       </div>
 
+
+  <?php
+   }
+
+    ?>
+    <!-- Cart element  -->
+    <div class="modal fade" tabindex="-1" id="cart">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <h5 class="text-center mt-3">WELCOME TO CART</h5>
+            <div class="modal-body">
+                <form method="POST" action="php/login.php">
+                    
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  </form>
+                
+            </div>
+            <div class="modal-footer">
+              
+              <p>Happy shopping. Best of luck</p> 
+            </div>
+          </div>
+        </div>
+      </div>
 
     <!-- header element -->
        <div class="container-fluid navbar shadow-sm">
@@ -79,7 +118,7 @@
                 </div>
                 <div class="nav_right d-flex justfify-content-between">
                     <div class="cart p-2">
-                        <button class="d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#login">
+                        <button class="d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#cart">
                         <span class="material-symbols-outlined">
                             shopping_cart
                             </span>
@@ -87,12 +126,26 @@
                     </button></div>
 
                     <div class="profile p-2">
+                        <?php
+                    
+                        if($isUser){
+
+                        ?>
+                        <a href="adminDash.php"></a>
+                        <?php
+                        }else{
+                        ?>
                         <button type="button" class="d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#login">
                             <span class="material-symbols-outlined">
                             person
                             </span>
                             <p class="pt-3">Profile</p>
                         </button>
+
+                        <?php
+                        }
+
+                        ?>
                     </div>
                 </div>
             

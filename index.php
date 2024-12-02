@@ -13,8 +13,12 @@
 </head>
 <body>
     <?php
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+
     $isUser = isset($_SESSION['user_id'])?? false;
-   if($isUser){
+   if(!$isUser):
     ?>
     <!-- Login modal -->
     <div class="modal fade" tabindex="-1" id="login">
@@ -82,7 +86,7 @@
 
 
   <?php
-   }
+   endif;
 
     ?>
     <!-- Cart element  -->
@@ -127,13 +131,16 @@
 
                     <div class="profile p-2">
                         <?php
-                    
-                        if($isUser){
-
+                        if($isUser):
                         ?>
-                        <a href="adminDash.php"></a>
+                        <a class="d-flex align-items-center link-underline link-underline-opacity-0 link-dark" href="adminDash.php">
+                            <span class="material-symbols-outlined">
+                            person
+                            </span>
+                            <p class="pt-3">Profile</p>
+                        </a>
                         <?php
-                        }else{
+                        else:
                         ?>
                         <button type="button" class="d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#login">
                             <span class="material-symbols-outlined">
@@ -143,7 +150,7 @@
                         </button>
 
                         <?php
-                        }
+                        endif;
 
                         ?>
                     </div>

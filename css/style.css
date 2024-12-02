@@ -69,6 +69,17 @@
     background-color: #e7e7f5;
 }
 
+.nav_right a
+{
+    border: none;
+    border-radius: 10px;
+    background-color: #F3F3F3;
+}
+.nav_right a:hover
+{
+    /* border-radius: 2px solid rgb(0, 0, 0); */
+    background-color: #e7e7f5;
+}
 
 /* main content */
 

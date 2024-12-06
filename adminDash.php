@@ -1,8 +1,4 @@
 <?php
-ini_set('display_errors', '1'); 
-ini_set('display_startup_errors', '1');
-error_reporting(E_ALL);
-
 require "php/conn.php";
 $ct=0;
 // for product list
@@ -73,14 +69,16 @@ $resultOr=$conn->query($sqlOr);
                     </div>
                     <button type="submit" class="btn btn-primary">Add Products</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </form>  
+                </form>
+                
+                </div>
             </div>
-          </div>
         </div>
     </div>
 
-    <!-- order Modal  -->
-    <div class="modal fade" id="AddOrder" tabindex="-1">
+
+     <!-- order Modal  -->
+     <div class="modal fade" id="AddOrder" tabindex="-1">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -125,6 +123,7 @@ $resultOr=$conn->query($sqlOr);
           </div>
         </div>
     </div>
+
       <!-- main content  -->
     <div class="content d-flex">
         <!-- left side admin panel  -->
@@ -148,30 +147,30 @@ $resultOr=$conn->query($sqlOr);
         <!-- right side admin panel  -->
         <div class="adminRight">
             <!-- dashboard  -->
-            <div class="dashboard">
+             <div class="dashboard">
                 <!-- admin header  -->
-                <div class="navbar d-flex">
-                    <div class="navbarLeft">
-                        <h4>Welcome To Dashboard</h4>
-                        <!-- <div class="navbarimg"></div> -->
-                    </div>
-                    <div class="navbarRight d-flex p-3">
-                        <button class="navR"><i class="fa-solid fa-gear"></i></button>
-                        <button class="navR"><i class="fa-regular fa-bell"></i></button>
-                        <button class="navR"><i class="fa-regular fa-user"></i></button>
-                    </div>
+            <div class="navbar d-flex">
+                <div class="navbarLeft">
+                    <h4>Welcome To Dashboard</h4>
+                    <!-- <div class="navbarimg"></div> -->
                 </div>
+                <div class="navbarRight d-flex p-3">
+                    <button class="navR"><i class="fa-solid fa-gear"></i></button>
+                    <button class="navR"><i class="fa-regular fa-bell"></i></button>
+                    <button class="navR"><i class="fa-regular fa-user"></i></button>
+                </div>
+            </div>
             <!-- contentHead -->
-                <div class="contentHead"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p></div>
+            <div class="contentHead"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p></div>
 
             <!-- content body  -->
-                <div class="contentBody">
-                    <div class="contentRow d-flex">
-                        <div class="card shadow-lg me-5">
-                            <div class="cardbody d-flex justify-content-between align-items-center p-3">
-                                <div class="cardlogo"><i class="fa-solid fa-chart-line"></i></div>
-                                <div class="cardContent d-flex flex-column justfify-content-center align-items-center"><p>Total Sells</p><h3>13,647</h3></div>
-                            </div>
+            <div class="contentBody">
+                <div class="contentRow d-flex">
+                    <div class="card shadow-lg me-5">
+                        <div class="cardbody d-flex justify-content-between align-items-center p-3">
+                            <div class="cardlogo"><i class="fa-solid fa-chart-line"></i></div>
+                            <div class="cardContent d-flex flex-column justfify-content-center align-items-center"><p>Total Sells</p><h3>13,647</h3></div>
+                        </div>
                         <div class="cardfooter d-flex justify-content-between align-items-center p-3"><p>Last Week</p><button>view more</button></div>
                     </div>
                     <div class="card shadow-lg ">
@@ -198,7 +197,7 @@ $resultOr=$conn->query($sqlOr);
                         <div class="cardfooter d-flex justify-content-between align-items-center p-3"><p>Last Week</p><button>view more</button></div>
                     </div>
                 </div>
-                </div>
+            </div>
              </div>
              <!-- dashboard products -->
             <div class="dashProducts">
@@ -247,7 +246,7 @@ $resultOr=$conn->query($sqlOr);
                         <?php
                     if ($resultp->num_rows > 0) {
                     // Fetch and display each row of data
-                    while ($row = $result->fetch_assoc()) {
+                    while ($row = $resultp->fetch_assoc()) {
                         echo "<tr>";
                         echo "<td>" . $row['id'] . "</td>";
                         echo "<td>" . $row['name'] . "</td>";
@@ -293,40 +292,38 @@ $resultOr=$conn->query($sqlOr);
                 </div>
                 <div class="orderList">
                     <table class="table">
-                          <tr>
-                          <thead>
-                            <th scope="col">OrderID</th>
-                            <th scope="col">ProductId</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">Quantity</th>
-                            <th scope="col">Order Description</th>
-                            <th scope="col">price</th>
-                            <th scope="col">option</th>
-                            </thead>
-                          </tr>
-                          <tbody>
-                        <?php
-                    if ($resultOr->num_rows > 0) {
-                    // Fetch and display each row of data
-                    while ($row = $result->fetch_assoc()) {
-                        echo "<tr>";
-                        echo "<td>" . $row['orderId'] . "</td>";
-                        echo "<td>" . $row['productId'] . "</td>";
-                        echo "<td>" . $row['status'] . "</td>";
-                        echo "<td>" . $row['quantity'] . "</td>";
-                        echo "<td>" . $row['OrderDescription'] . "</td>";
-                        echo "<td>$" . number_format($row['price'], 2) . "</td>";
-                        echo "<td class='productListOption d-flex'><button class='edit'>Edit</button>
-                    <button class='delete'>Delete</button>
-
-                    </td>";
-                        echo "</tr>";
-                    }
-                    } else {
-                    echo "<tr><td colspan='7'>No products found</td></tr>";
-                    }
-                    ?>
-                        </tbody>
+                        <thead>
+                            <tr>
+                                <th scope="col">OrderID</th>
+                                <th scope="col">ProductId</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Order Description</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Option</th>
+                             </tr>
+        </thead>
+        <tbody>
+            <?php
+            if ($resultOr->num_rows > 0) {
+                // Fetch and display each row of data
+                while ($row = $resultOr->fetch_assoc()) {
+                    echo "<tr>";
+                    echo "<td>" . htmlspecialchars($row['orderId']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['productId']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['status']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['quantity']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['OrderDescription']) . "</td>";
+                    echo "<td>$" . number_format($row['price'], 2) . "</td>";
+                    echo "<td class='OrderListOption d-flex'><button class='edit'>Edit</button>
+                        <button class='delete'>Delete</button></td>";
+                    echo "</tr>";
+                }
+            } else {
+                echo "<tr><td colspan='7'>No products found</td></tr>";
+            }
+            ?>
+        </tbody>
                     </table>
                 </div>
             </div>

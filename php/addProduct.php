@@ -19,6 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if ($conn->query($sql) === TRUE) {
             echo "Product added successfully!";
+            header("Location: /smsgadget/adminDash.php");
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }

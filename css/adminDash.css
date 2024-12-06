@@ -230,9 +230,19 @@ table img
 }
 .orderList
 {
+    overflow: scroll;
+    height:350px;
     margin:0px 50px 0px 50px;
 }
-
+.OrderListOption button
+{
+    font-size: 12px;
+    padding: 10px;
+    margin: 2px;
+    border-radius: 10px;
+    width: 60px;
+    color: white;
+}
 /* admin dashboard sales  */
 .sales
 {

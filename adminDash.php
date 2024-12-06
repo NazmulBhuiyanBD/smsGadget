@@ -147,19 +147,19 @@ $resultOr=$conn->query($sqlOr);
         <!-- right side admin panel  -->
         <div class="adminRight">
             <!-- dashboard  -->
-             <div class="dashboard">
+            <div class="dashboard">
                 <!-- admin header  -->
-            <div class="navbar d-flex">
-                <div class="navbarLeft">
+                <div class="navbar d-flex">
+                    <div class="navbarLeft">
                     <h4>Welcome To Dashboard</h4>
                     <!-- <div class="navbarimg"></div> -->
-                </div>
-                <div class="navbarRight d-flex p-3">
+                    </div>
+                    <div class="navbarRight d-flex p-3">
                     <button class="navR"><i class="fa-solid fa-gear"></i></button>
                     <button class="navR"><i class="fa-regular fa-bell"></i></button>
                     <button class="navR"><i class="fa-regular fa-user"></i></button>
+                    </div>
                 </div>
-            </div>
             <!-- contentHead -->
             <div class="contentHead"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p></div>
 

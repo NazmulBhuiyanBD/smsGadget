@@ -31,14 +31,6 @@
     color: white;
     border-bottom: 2px solid white ;
 }
-/* .logo
-{
-    background-image: url("/images/adminlogo.png");
-    background-size: cover;
-    height:150px;
-    width: 150px;
-    
-} */
 .logo img
 {
     height:150px;
@@ -58,11 +50,6 @@
     text-align: start;
     border-radius: 25px;
 }
-/* .button :hover
-{
-    color: #141414;
-    box-shadow: 10px 10px 5px lightblue;
-} */
 
 .menu img
 {

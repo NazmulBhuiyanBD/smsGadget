@@ -1,3 +1,9 @@
+<?php
+require "php/conn.php";
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,32 +28,61 @@
                 <h4 class="mt-1">USER</h4>
             </div>
             <div class="menu d-flex flex-column align-items-center justfify-content-center mt-3">
-            <button class="button" onclick="Dashboard()"><img src="images/dashboard.png" alt="dashboard"> Dashboard</button>
-            <button class="button" onclick="Products()"><img src="images/product.png" alt="product"> Products</button>
-            <button class="button" onclick="Orders()"><img src="images/order.png" alt="order"> Orders</button>
-            <button class="button" onclick="Sales()"><img src="images/sale.png" alt="Sales"> Sales</button>
-            <button class="button" onclick="Profit()"><img src="images/profit.png" alt="Profit"> Profit</button>
-            <button class="button" onclick="Expenses()"><img src="images/expense.png" alt="Expenses"> Expenses</button>
-            <button class="button" onclick="Complains()"><img src="images/complain.png" alt="Complains"> Complains</button>           
+            <button class="MenuButton d-flex align-items-center " onclick="Dashboard()"><span class="material-symbols-outlined menuLogo">
+                dashboard
+            </span> <p>Dashboard</p></button>
+            <button class="MenuButton d-flex align-items-center " onclick="Products()"><span class="material-symbols-outlined menuLogo">
+            update
+            </span> <p>Update Profile</p></button>
+            <button class="MenuButton d-flex align-items-center " onclick="Orders()"><span class="material-symbols-outlined menuLogo">
+            shopping_cart
+            </span> <p>Orders</p></button>
+            <button class="MenuButton d-flex align-items-center " onclick="Complains()"><span class="material-symbols-outlined menuLogo">
+            comment
+            </span><p> Feedback</p></button>           
             </div>
         </div>
 
         <!-- User right side panel  -->
          <div class="userRightPanel">
-            <!-- <div class="userHeader"> -->
-                <div class="navbar d-flex">
-                    <div class="navbarLeft">
+            <!-- navbar right side  -->
+            <div class="navbar d-flex">
+                <div class="navbarLeft">
                         <h4>Welcome To Dashboard</h4>
                         <!-- <div class="navbarimg"></div> -->
-                    </div>
-                    <div class="navbarRight d-flex p-3">
+                </div>
+                <div class="navbarRight d-flex p-3">
                         <button class="navR"><i class="fa-solid fa-gear"></i></button>
                         <button class="navR"><i class="fa-regular fa-bell"></i></button>
                         <button class="navR"><i class="fa-regular fa-user"></i></button>
-                    </div>
                 </div>
-            <!-- </div> -->
-         </div>
+            </div>
+            <div class="LeftpanelOption">
+                    <!-- Dashboard  -->
+                        <div class="dashboard">
+
+                        </div>
+
+                    <!-- update profile  -->
+                    <div class="update">
+
+                    </div>
+                    <!-- complain  -->
+                    <div class="feedback">
+                    <form action="" method="POST">
+                        <div class="mb-3">
+                            <label class="form-label">Topics</label>
+                            <input type="email" class="form-control" id="topic" placeholder="Feedback for ......">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Feedback</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
+                        <input type="submit" value="submit">
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>

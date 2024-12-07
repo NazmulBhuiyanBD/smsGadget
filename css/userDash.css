@@ -40,18 +40,22 @@
     background-color: white;
     border-radius: 100%;
 }
-.button
+.MenuButton
 {
     width: 200px;
-    height: 40px;
+    height: 50px;
     color: #000000;
-    margin: 5px;
+    margin:15px;
     text-decoration: none;
-    text-align: start;
-    border-radius: 25px;
+    text-align: center;
+    border-radius: 15px;
+}
+.MenuButton p
+{
+    padding-top: 15px;
 }
 
-.menu img
+.menuLogo
 {
     height: 20px;
     width: 20px;
@@ -64,7 +68,6 @@
 {
     height: 100vh;
     width: 100%;
-    /* margin-top: 10px; */
     background-color: white;
 }
 .navbar
@@ -89,4 +92,11 @@
     margin: 10px;
     border: 2px slategrey ;
     border-radius: 100%;
+}
+
+/* user rigth panel option  */
+.LeftpanelOption
+{
+    margin: 50px;
+    padding:5px;
 }

@@ -100,3 +100,27 @@
     margin: 50px;
     padding:5px;
 }
+
+
+/* feedback */
+.feedback
+{
+    padding: 10px;
+
+}
+.feedback label
+{
+    font-size: 20px;
+    font-weight: 700;
+}
+.feedback button
+{
+    width: 150px;
+    height: 50px;
+    background-color: #3C3C52;
+    color: white;
+    margin:15px;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 15px;
+}

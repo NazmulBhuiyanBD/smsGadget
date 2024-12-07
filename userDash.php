@@ -76,9 +76,11 @@ require "php/conn.php";
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Feedback</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <textarea class="form-control" id="FeedbackDescription" placeholder="Description .." rows="3"></textarea>
                         </div>
-                        <input type="submit" value="submit">
+                        <div class="col-12">
+                        <button class="btn" type="submit">Submit</button>
+                        </div>
                     </form>
                 </div>
             </div>

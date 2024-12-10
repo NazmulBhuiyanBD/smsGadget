@@ -244,3 +244,15 @@ table img
     margin:0px 50px 50px 50px;
 }
 
+/* feedback  */
+.feedback{
+    display: none;
+}
+.feedbackList
+{
+    overflow: scroll;
+    height:350px;
+    margin:0px 50px 0px 50px;
+}
+
+

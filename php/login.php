@@ -22,7 +22,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['username'] = $user['username'];
 
             // Redirect to dashboard or any other page
-            header("Location: /smsgadget/adminDash.php");
+
+            if ($usertype === "Admin") {
+                header("Location: /smsgadget/adminDash.php");
+                
+            } 
+            else {
+                header("Location: /smsgadget/userDash.php");
+            }
             exit;
         } else {
             echo "Invalid password!";

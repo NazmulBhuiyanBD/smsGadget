@@ -1,7 +1,14 @@
 <?php
 require "php/conn.php";
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
-
+$isUser = isset($_SESSION['user_id'])?? false;
+if(!$isUser)
+{
+    header("Location: /smsgadget/index.php");
+}
 
 ?>
 <!DOCTYPE html>
@@ -54,7 +61,7 @@ require "php/conn.php";
                 <div class="navbarRight d-flex p-3">
                         <button class="navR"><i class="fa-solid fa-gear"></i></button>
                         <button class="navR"><i class="fa-regular fa-bell"></i></button>
-                        <button class="navR"><i class="fa-regular fa-user"></i></button>
+                        <button class="navR" onclick="confirmLogout()"><i class="fa-regular fa-user"></i></button>
                 </div>
             </div>
             <div class="LeftpanelOption">
@@ -69,14 +76,14 @@ require "php/conn.php";
                     </div>
                     <!-- complain  -->
                     <div class="feedback">
-                    <form action="" method="POST">
+                    <form action="php/feedback.php" method="POST">
                         <div class="mb-3">
                             <label class="form-label">Topics</label>
-                            <input type="email" class="form-control" id="topic" placeholder="Feedback for ......">
+                            <input type="text" class="form-control" id="topic"name="topic" placeholder="Feedback for ......"required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Feedback</label>
-                            <textarea class="form-control" id="FeedbackDescription" placeholder="Description .." rows="3"></textarea>
+                            <textarea class="form-control" id="FeedbackDescription"name="description" placeholder="Description .." rows="3" required></textarea>
                         </div>
                         <div class="col-12">
                         <button class="btn" type="submit">Submit</button>
@@ -86,5 +93,7 @@ require "php/conn.php";
             </div>
         </div>
     </div>
+
+    <script src="js/userDash.js"></script>
 </body>
 </html>

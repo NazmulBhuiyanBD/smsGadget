@@ -48,7 +48,7 @@
     margin: 5px;
     text-decoration: none;
     text-align: start;
-    border-radius: 25px;
+    border-radius: 10px;
 }
 
 .menu img
@@ -242,6 +242,17 @@ table img
 .salesGraph
 {
     margin:0px 50px 50px 50px;
+}
+
+/* profit  */
+.profit
+{
+    display: none;
+}
+/* expenses  */
+.expenses
+{
+display: none;
 }
 
 /* feedback  */

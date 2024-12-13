@@ -2,8 +2,8 @@ let dashboard = document.getElementsByClassName("dashboard")[0];
 let products = document.getElementsByClassName("dashProducts")[0];
 let orders = document.getElementsByClassName("orders")[0];
 let sales = document.getElementsByClassName("sales")[0];
-let profit = document.getElementsByClassName("example")[0];
-let expenses= document.getElementsByClassName("example")[0];
+let profit = document.getElementsByClassName("profit")[0];
+let expenses= document.getElementsByClassName("expenses")[0];
 let feedback= document.getElementsByClassName("feedback")[0];
 
 function Dashboard()
@@ -64,7 +64,7 @@ function Expenses()
     sales.style.display='none';
     profit.style.display='none';
     expenses.style.display='block';
-    feedback.style.display='block';
+    feedback.style.display='none';
 }
 function Feedback()
 {
@@ -89,8 +89,32 @@ function confirmLogout() {
     }
 }
 function productDelete(Id) {
-    if (confirm("Are you sure you want to delete this user?")) {
+    if (confirm("Are you sure you want to delete this Product?")) {
         // Redirect to delete script with user ID as a query parameter
-        window.location.href = `php/deleteProduct.php?id=${Id}`;
+        window.location.href = `php/delete.php?id=${Id}`;
     }
+}
+function OrderDelete(Id) {
+    if (confirm("Are you sure you want to delete this Order?")) {
+        // Redirect to delete script with user ID as a query parameter
+        window.location.href = `php/delete.php?orderId=${Id}`;
+    }
+}
+
+
+
+function fetchData(id) {
+    // Fetch data using AJAX
+    fetch('update_product.php?id=' + id)
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('id').value = data.id;
+            document.getElementById('name').value = data.name;
+            document.getElementById('brand').value = data.brand;
+            document.getElementById('category').value = data.category;
+            document.getElementById('image_path').value = data.image_path;
+            document.getElementById('description').value = data.description;
+            document.getElementById('price').value = data.price;
+        })
+        .catch(error => console.error('Error:', error));
 }

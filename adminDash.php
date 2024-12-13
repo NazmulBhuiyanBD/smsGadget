@@ -139,6 +139,59 @@ $resultFeedback=$conn->query($sqlFeedback);
         </div>
     </div>
 
+    <!-- product update modal  -->
+    <div class="modal fade" id="UpdateProducts" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Update Products</h5>
+            </div>
+            <div class="modal-body">
+                <form action="php/update.php" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="id" id="pId">
+                    <div class="mb-3">
+                        <label class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" name="name">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Brand</label>
+                        <input type="text" class="form-control" id="brand" name="brand">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Category</label>
+                        <select class="form-select" name="category" required>
+                            <option selected>Open this select menu</option>
+                            <option value="mobile">Mobile</option>
+                            <option value="powerBank">Power Bank</option>
+                            <option value="speaker">Speaker</option>
+                            <option value="cableAdapter">Cable & Adapter</option>
+                            <option value="caseProtector">Case & Protector</option>
+                            <option value="headphones">Headphones</option>
+                            <option value="tablet">Tablet</option>
+                            <option value="SmartWatch">Smart Watch</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Image</label>
+                        <input type="file" class="form-control" id="image" name="image" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Description</label>
+                        <input type="text" class="form-control" id="description" name="description">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Price</label>
+                        <input type="number" class="form-control" id="price" name="price" step="0.01" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update Products</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </form>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+
       <!-- main content  -->
     <div class="content d-flex">
         <!-- left side admin panel  -->
@@ -156,7 +209,7 @@ $resultFeedback=$conn->query($sqlFeedback);
             <button class="button" onclick="Sales()"><img src="images/sale.png" alt="Sales"> Sales</button>
             <button class="button" onclick="Profit()"><img src="images/profit.png" alt="Profit"> Profit</button>
             <button class="button" onclick="Expenses()"><img src="images/expense.png" alt="Expenses"> Expenses</button>
-            <button class="button" onclick="Complains()"><img src="images/complain.png" alt="Complains"> Feedback</button>           
+            <button class="button" onclick="Feedback()"><img src="images/complain.png" alt="Complains"> Feedback</button>           
             </div>
         </div>
         <!-- right side admin panel  -->
@@ -259,7 +312,8 @@ $resultFeedback=$conn->query($sqlFeedback);
                         echo "<td><img src='" . $row['image_path'] . "' alt='Product Image' width='100'height='200'></td>";
                         echo "<td>" . $row['description'] . "</td>";
                         echo "<td>$" . number_format($row['price'], 2) . "</td>";
-                        echo "<td class='productListOption d-flex'><button class='edit'>Edit</button>
+                        echo "<td class='productListOption d-flex'>
+                    <button class='edit' data-bs-toggle='modal' data-bs-target='#UpdateProducts' onclick='fetchData({$row['id']})'>Edit</button>
                     <button class='delete' onclick='productDelete(" . $row['id'] . ")'>Delete</button>
 
                     </td>";
@@ -309,7 +363,7 @@ $resultFeedback=$conn->query($sqlFeedback);
                             echo "<td>" . htmlspecialchars($row['OrderDescription']) . "</td>";
                             echo "<td>$" . number_format($row['price'], 2) . "</td>";
                             echo "<td class='OrderListOption d-flex'><button class='edit'>Edit</button>
-                        <button class='delete'>Delete</button></td>";
+                        <button class='delete' onclick='OrderDelete(" . $row['orderId'] . ")'>Delete</button></td>";
                             echo "</tr>";
                             }
                         } else {
@@ -333,7 +387,14 @@ $resultFeedback=$conn->query($sqlFeedback);
                     <canvas id="barChart"></canvas>
                 </div>
             </div>
-
+            <!-- dashboard profit -->
+             <div class="profit">
+                <p>profit</p>
+             </div>
+            <!-- dashboard expenses  -->
+             <div class="expenses">
+                <p>expenses</p>
+             </div>
             <!-- feedback from user  -->
             <div class="feedback m-3 p-3">
                 <div class="feedbackList">

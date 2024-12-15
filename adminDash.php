@@ -138,60 +138,6 @@ $resultFeedback=$conn->query($sqlFeedback);
           </div>
         </div>
     </div>
-
-    <!-- product update modal  -->
-    <div class="modal fade" id="UpdateProducts" tabindex="-1">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Update Products</h5>
-            </div>
-            <div class="modal-body">
-                <form action="php/update.php" method="POST" enctype="multipart/form-data">
-                    <input type="hidden" name="id" id="pId">
-                    <div class="mb-3">
-                        <label class="form-label">Name</label>
-                        <input type="text" class="form-control" id="name" name="name">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Brand</label>
-                        <input type="text" class="form-control" id="brand" name="brand">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Category</label>
-                        <select class="form-select" name="category" required>
-                            <option selected>Open this select menu</option>
-                            <option value="mobile">Mobile</option>
-                            <option value="powerBank">Power Bank</option>
-                            <option value="speaker">Speaker</option>
-                            <option value="cableAdapter">Cable & Adapter</option>
-                            <option value="caseProtector">Case & Protector</option>
-                            <option value="headphones">Headphones</option>
-                            <option value="tablet">Tablet</option>
-                            <option value="SmartWatch">Smart Watch</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Image</label>
-                        <input type="file" class="form-control" id="image" name="image" required>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Description</label>
-                        <input type="text" class="form-control" id="description" name="description">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Price</label>
-                        <input type="number" class="form-control" id="price" name="price" step="0.01" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Update Products</button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </form>
-                
-                </div>
-            </div>
-        </div>
-    </div>
-
       <!-- main content  -->
     <div class="content d-flex">
         <!-- left side admin panel  -->
@@ -266,7 +212,8 @@ $resultFeedback=$conn->query($sqlFeedback);
                     </div>
                     </div>
                 </div>
-             </div>
+            </div>
+
              <!-- dashboard products -->
             <div class="dashProducts">
                 <!-- contentHead -->
@@ -313,7 +260,7 @@ $resultFeedback=$conn->query($sqlFeedback);
                         echo "<td>" . $row['description'] . "</td>";
                         echo "<td>$" . number_format($row['price'], 2) . "</td>";
                         echo "<td class='productListOption d-flex'>
-                    <button class='edit' data-bs-toggle='modal' data-bs-target='#UpdateProducts' onclick='fetchData({$row['id']})'>Edit</button>
+                    <button class='edit' onclick='editProduct(". $row['id'].")'>Edit</button>
                     <button class='delete' onclick='productDelete(" . $row['id'] . ")'>Delete</button>
 
                     </td>";
@@ -330,7 +277,6 @@ $resultFeedback=$conn->query($sqlFeedback);
             <!-- dashboard order  -->
             <div class="orders">
                 <!-- contentHead -->
-                <div class="contentHead"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p></div>
                 <div class="productHeader d-flex justify-content-between">
                     <h2>Order List</h2>
                     <button type="button" data-bs-toggle="modal" data-bs-target="#AddOrder">
@@ -377,24 +323,141 @@ $resultFeedback=$conn->query($sqlFeedback);
             <!-- dashboard sales -->
             <div class="sales">
                 <!-- contentHead -->
-                <div class="contentHead"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p></div>
                 <div class="productHeader d-flex justify-content-between">
-                    <h2>Sales</h2>
-                    <!-- <button>Add Order</button> -->
+                    <h2>Sales List</h2>
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#AddSales">
+                        Add Sales
+                      </button>
                 </div>
-                <!-- content Graph  -->
-                <div class="graph mt-5 salesGraph">
-                    <canvas id="barChart"></canvas>
+                <div class="SalesList">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">SaleId</th>
+                                <th scope="col">Product</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Order Description</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Seller</th>
+                             </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            if ($resultOr->num_rows > 0) {
+                             // Fetch and display each row of data
+                                while ($row = $resultOr->fetch_assoc()) {
+                            echo "<tr>";
+                            echo "<td>" . htmlspecialchars($row['orderId']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['productId']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['status']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['quantity']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['OrderDescription']) . "</td>";
+                            echo "<td>$" . number_format($row['price'], 2) . "</td>";
+                            echo "<td class='OrderListOption d-flex'><button class='edit'>Edit</button>
+                        <button class='delete' onclick='OrderDelete(" . $row['orderId'] . ")'>Delete</button></td>";
+                            echo "</tr>";
+                            }
+                        } else {
+                        echo "<tr><td colspan='7'>No products found</td></tr>";
+                        }
+                            ?>
+                        </tbody>
+                        </table>
                 </div>
             </div>
+
             <!-- dashboard profit -->
-             <div class="profit">
-                <p>profit</p>
-             </div>
+            <div class="profit">
+                <!-- contentHead -->
+                <div class="productHeader d-flex justify-content-between">
+                    <h2>Profit</h2>
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#AddOrder">
+                        Add Profit
+                      </button>
+                </div>
+                <div class="orderList">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">OrderID</th>
+                                <th scope="col">ProductId</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Order Description</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Option</th>
+                             </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            if ($resultOr->num_rows > 0) {
+                             // Fetch and display each row of data
+                                while ($row = $resultOr->fetch_assoc()) {
+                            echo "<tr>";
+                            echo "<td>" . htmlspecialchars($row['orderId']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['productId']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['status']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['quantity']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['OrderDescription']) . "</td>";
+                            echo "<td>$" . number_format($row['price'], 2) . "</td>";
+                            echo "<td class='OrderListOption d-flex'><button class='edit'>Edit</button>
+                        <button class='delete' onclick='OrderDelete(" . $row['orderId'] . ")'>Delete</button></td>";
+                            echo "</tr>";
+                            }
+                        } else {
+                        echo "<tr><td colspan='7'>No products found</td></tr>";
+                        }
+                            ?>
+                        </tbody>
+                        </table>
+                </div>
+            </div>
             <!-- dashboard expenses  -->
-             <div class="expenses">
-                <p>expenses</p>
-             </div>
+            <div class="expenses">
+                <!-- contentHead -->
+                <div class="contentHead"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p></div>
+                <div class="productHeader d-flex justify-content-between">
+                    <h2>Expenses</h2>
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#AddExpenses">
+                        Add Expenses
+                      </button>
+                </div>
+                <div class="expensesList">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Expenses ID</th>
+                                <th scope="col">types</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Cost</th>
+                                <th scope="col">Data & time</th>
+                             </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            if ($resultOr->num_rows > 0) {
+                             // Fetch and display each row of data
+                                while ($row = $resultOr->fetch_assoc()) {
+                            echo "<tr>";
+                            echo "<td>" . htmlspecialchars($row['orderId']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['productId']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['status']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['quantity']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['OrderDescription']) . "</td>";
+                            echo "<td>$" . number_format($row['price'], 2) . "</td>";
+                            echo "<td class='OrderListOption d-flex'><button class='edit'>Edit</button>
+                        <button class='delete' onclick='OrderDelete(" . $row['orderId'] . ")'>Delete</button></td>";
+                            echo "</tr>";
+                            }
+                        } else {
+                        echo "<tr><td colspan='7'>No products found</td></tr>";
+                        }
+                            ?>
+                        </tbody>
+                        </table>
+                </div>
+            </div>
+           
             <!-- feedback from user  -->
             <div class="feedback m-3 p-3">
                 <div class="feedbackList">
@@ -435,6 +498,12 @@ $resultFeedback=$conn->query($sqlFeedback);
                     </table>
                 </div>
             </div>
+
+
+            <!-- content Graph  -->
+            <div class="graph mt-5 salesGraph visually-hidden">
+                    <canvas id="barChart"></canvas>
+                </div>
             
         </div>
     </div>

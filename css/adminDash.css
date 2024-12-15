@@ -234,10 +234,17 @@ table img
 .sales
 {
     display: none;
+    margin: 10px 20px 20px 20px;
 }
 .salesHeader
 {
-    margin:0px 50px 50px 50px;
+    /* margin:0px 50px 50px 50px; */
+}
+.SalesList
+{
+    overflow: scroll;
+    height:350px;
+    margin:0px 50px 0px 50px;
 }
 .salesGraph
 {

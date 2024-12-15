@@ -100,21 +100,10 @@ function OrderDelete(Id) {
         window.location.href = `php/delete.php?orderId=${Id}`;
     }
 }
-
-
-
-function fetchData(id) {
-    // Fetch data using AJAX
-    fetch('update_product.php?id=' + id)
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById('id').value = data.id;
-            document.getElementById('name').value = data.name;
-            document.getElementById('brand').value = data.brand;
-            document.getElementById('category').value = data.category;
-            document.getElementById('image_path').value = data.image_path;
-            document.getElementById('description').value = data.description;
-            document.getElementById('price').value = data.price;
-        })
-        .catch(error => console.error('Error:', error));
+function editProduct(Id) {
+    if (confirm("Are you sure you want to Update this Product Information?")) {
+        // Redirect to delete script with user ID as a query parameter
+        window.location.href = `php/update_product.php?productId=${Id}`;
+    }
 }
+

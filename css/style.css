@@ -111,9 +111,17 @@
     justify-content: space-between;
     align-items: center;
     font-size: 12px;
-    /* padding: 0px 5px 0px 5px; */
+    padding: 0px 5px 0px 5px;
+    transition: font-size 0.2s ease-in-out;
 }
-
+.categoryItems i
+{
+    padding: 5px;
+}
+.categoryItems :hover
+{
+    transform: scale(1.2)
+}
 .carosolImg
 {
     height: 350px;

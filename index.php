@@ -155,8 +155,6 @@
                         ?>
                     </div>
                 </div>
-            
-
             </div>  
         </div>
         <!-- main element -->
@@ -172,65 +170,49 @@
                                 <div class="items d-flex justify-content-center align-items-center"><span class="material-symbols-outlined p-2">
                                     smartphone
                                     </span><p class="m-2">Mobile</p></div>
-                                    <span class="material-symbols-outlined p-2">
-                                        add
-                                        </span>
+                                    <i class="fa-solid fa-plus"></i>
                             </div>
                             <div class="categoryItems">
                                 <div class="items d-flex justify-content-center align-items-center"><span class="material-symbols-outlined p-2">
                                     charging_station
                                     </span><p class="m-2">Power Bank</p></div>
-                                    <span class="material-symbols-outlined p-2">
-                                        add
-                                        </span>
+                                    <i class="fa-solid fa-plus"></i>
                             </div>
                             <div class="categoryItems">
                                 <div class="items d-flex justify-content-center align-items-center"><span class="material-symbols-outlined p-2">
                                     speaker
                                     </span><p class="m-2">Speaker</p></div>
-                                <span class="material-symbols-outlined p-2">
-                                    add
-                                    </span>
+                                    <i class="fa-solid fa-plus"></i>
                             </div>
                             <div class="categoryItems">
                                 <div class="items d-flex justify-content-center align-items-center"><span class="material-symbols-outlined p-2">
                                     cable
                                     </span><p class="m-2">Cable & Adapter</p></div>
-                                <span class="material-symbols-outlined p-2">
-                                    add
-                                    </span>
+                                    <i class="fa-solid fa-plus"></i>
                             </div>
                             <div class="categoryItems">
                                 <div class="items d-flex justify-content-center align-items-center"><span class="material-symbols-outlined p-2">
                                     tab_inactive
                                     </span><p class="m-2">Case & Protector</p></div>
-                                <span class="material-symbols-outlined p-2">
-                                    add
-                                    </span>
+                                    <i class="fa-solid fa-plus"></i>
                             </div>
                             <div class="categoryItems">
                                 <div class="items d-flex justify-content-center align-items-center"><span class="material-symbols-outlined p-2">
                                     headphones
                                     </span><p class="m-2">Headphones</p></div>
-                                <span class="material-symbols-outlined p-2">
-                                    add
-                                    </span>
+                                    <i class="fa-solid fa-plus"></i>
                             </div>
                             <div class="categoryItems">
                                 <div class="items d-flex justify-content-center align-items-center"><span class="material-symbols-outlined p-2">
                                     tablet
                                     </span><p class="m-2">Tablet</p></div>
-                                <span class="material-symbols-outlined p-2">
-                                    add
-                                    </span>
+                                    <i class="fa-solid fa-plus"></i>
                             </div>
                             <div class="categoryItems">
                                 <div class="items d-flex justify-content-center align-items-center"><span class="material-symbols-outlined p-2">
                                     watch_vibration
                                     </span><p class="m-2">Smart Watch</p></div>
-                                <span class="material-symbols-outlined p-2">
-                                    add
-                                    </span>
+                                    <i class="fa-solid fa-plus"></i>
                             </div>
                         </div>
                     </div>
@@ -281,44 +263,44 @@
                     <div class="row">
                         <div class="col-lg-3 col-6">
                             <div class="newProducts">
-                                <img src="images/iphone16promax.png">
-                                <h4>iPhone 16 Pro Max</h4>
+                                <img src="images/iqoo_13_alpha.png">
+                                <h4>iQOO 13</h4>
                                 <div class="price d-flex justfify-content-evenly">
-                                    <p>৳110999</p>
-                                    <p><del>৳120999</del></p>
+                                    <p>৳74,999</p>
+                                    <p><del>৳90,999</del></p>
                                 </div>
                                 <button>Add to cart</button>
                             </div>
                         </div>
                         <div class="col-lg-3 col-6">
                             <div class="newProducts">
-                                <img src="images/iphone16promax.png">
-                            <h4>iPhone 16 Pro Max</h4>
+                                <img src="images/iqoo_neo_10.png">
+                            <h4>iQOO Neo 10</h4>
                             <div class="price d-flex justfify-content-evenly">
-                                <p>৳110999</p>
-                                <p><del>৳120999</del></p>
+                                <p>৳45,000</p>
+                                <p><del>৳50,0000</del></p>
                             </div>
                             <button>Add to cart</button>
                             </div>
                         </div>
                         <div class="col-lg-3 col-6">
                             <div class="newProducts">
-                                <img src="images/iphone16promax.png">
-                            <h4>iPhone 16 Pro Max</h4>
+                                <img src="images/vivo_v40_lite.png">
+                            <h4>vivo V40 Lite</h4>
                             <div class="price d-flex justfify-content-evenly">
-                                <p>৳110999</p>
-                                <p><del>৳120999</del></p>
+                                <p>৳30,999</p>
+                                <p><del>৳35,000</del></p>
                             </div>
                             <button>Add to cart</button>
                             </div>
                         </div>
                         <div class="col-lg-3 col-6">
                             <div class="newProducts">
-                                <img src="images/iphone16promax.png">
-                            <h4>iPhone 16 Pro Max</h4>
+                                <img src="images/Vivo_Y19s.png">
+                            <h4>Vivo Y19s</h4>
                             <div class="price d-flex justfify-content-evenly">
-                                <p>৳110999</p>
-                                <p><del>৳120999</del></p>
+                                <p>৳11999</p>
+                                <p><del>৳12999</del></p>
                             </div>
                             <button>Add to cart</button>
                             </div>
@@ -339,44 +321,44 @@
                     <div class="row">
                         <div class="col-lg-3 col-6 ">
                             <div class="newProducts">
-                                <img src="images/iphone16promax.png">
-                                <h4>iPhone 16 Pro Max</h4>
+                                <img src="images/charger.png">
+                                <h4>vivo 10W Adapter</h4>
                                 <div class="price d-flex justfify-content-evenly">
-                                    <p>৳110999</p>
-                                    <p><del>৳120999</del></p>
+                                    <p>৳999</p>
+                                    <p><del>৳1299</del></p>
                                 </div>
                                 <button>Add to cart</button>
                             </div>
                         </div>
                         <div class="col-lg-3 col-6">
                             <div class="newProducts">
-                                <img src="images/iphone16promax.png">
-                            <h4>iPhone 16 Pro Max</h4>
+                                <img src="images/twsair.png">
+                            <h4>TWS air</h4>
                             <div class="price d-flex justfify-content-evenly">
-                                <p>৳110999</p>
-                                <p><del>৳120999</del></p>
+                                <p>৳4999</p>
+                                <p><del>৳5199</del></p>
                             </div>
                             <button>Add to cart</button>
                             </div>
                         </div>
                         <div class="col-lg-3 col-6">
                             <div class="newProducts">
-                                <img src="images/iphone16promax.png">
-                            <h4>iPhone 16 Pro Max</h4>
+                                <img src="images/tws3e.png">
+                            <h4>TWS 3e</h4>
                             <div class="price d-flex justfify-content-evenly">
-                                <p>৳110999</p>
-                                <p><del>৳120999</del></p>
+                                <p>৳2999</p>
+                                <p><del>৳3299</del></p>
                             </div>
                             <button>Add to cart</button>
                             </div>
                         </div>
                         <div class="col-lg-3 col-6">
                             <div class="newProducts">
-                                <img src="images/iphone16promax.png">
-                            <h4>iPhone 16 Pro Max</h4>
+                                <img src="images/kieslect_actor.png">
+                            <h4>Kieslect Actor</h4>
                             <div class="price d-flex justfify-content-evenly">
-                                <p>৳110999</p>
-                                <p><del>৳120999</del></p>
+                                <p>৳9099</p>
+                                <p><del>৳12999</del></p>
                             </div>
                             <button>Add to cart</button>
                             </div>

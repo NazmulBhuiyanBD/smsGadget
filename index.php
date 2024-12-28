@@ -91,24 +91,22 @@
     ?>
     <!-- Cart element  -->
     <div class="modal fade" tabindex="-1" id="cart">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <h5 class="text-center mt-3">WELCOME TO CART</h5>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <h5 class="text-center mt-3">Your Cart</h5>
             <div class="modal-body">
-                <form method="POST" action="php/login.php">
-                    
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  </form>
-                
+                <!-- Container to display cart items -->
+                <div id="cart-items"></div>
+                <button type="button" class="btn btn-primary w-100 mt-3" id="checkout-btn">Checkout</button>
             </div>
             <div class="modal-footer">
-              
-              <p>Happy shopping. Best of luck</p> 
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
-          </div>
         </div>
-      </div>
+    </div>
+</div>
+
+
 
     <!-- header element -->
        <div class="container-fluid navbar shadow-sm">
@@ -266,7 +264,7 @@
                                 <img src="images/iqoo_13_alpha.png">
                                 <h4>iQOO 13</h4>
                                 <div class="price d-flex justfify-content-evenly">
-                                    <p>৳74,999</p>
+                                    <p>74,999</p>
                                     <p><del>৳90,999</del></p>
                                 </div>
                                 <button>Add to cart</button>
@@ -277,7 +275,7 @@
                                 <img src="images/iqoo_neo_10.png">
                             <h4>iQOO Neo 10</h4>
                             <div class="price d-flex justfify-content-evenly">
-                                <p>৳45,000</p>
+                                <p>45,000</p>
                                 <p><del>৳50,0000</del></p>
                             </div>
                             <button>Add to cart</button>
@@ -288,7 +286,7 @@
                                 <img src="images/vivo_v40_lite.png">
                             <h4>vivo V40 Lite</h4>
                             <div class="price d-flex justfify-content-evenly">
-                                <p>৳30,999</p>
+                                <p>30,999</p>
                                 <p><del>৳35,000</del></p>
                             </div>
                             <button>Add to cart</button>
@@ -299,7 +297,7 @@
                                 <img src="images/Vivo_Y19s.png">
                             <h4>Vivo Y19s</h4>
                             <div class="price d-flex justfify-content-evenly">
-                                <p>৳11999</p>
+                                <p>11999</p>
                                 <p><del>৳12999</del></p>
                             </div>
                             <button>Add to cart</button>
@@ -324,7 +322,7 @@
                                 <img src="images/charger.png">
                                 <h4>vivo 10W Adapter</h4>
                                 <div class="price d-flex justfify-content-evenly">
-                                    <p>৳999</p>
+                                    <p>999</p>
                                     <p><del>৳1299</del></p>
                                 </div>
                                 <button>Add to cart</button>
@@ -335,7 +333,7 @@
                                 <img src="images/twsair.png">
                             <h4>TWS air</h4>
                             <div class="price d-flex justfify-content-evenly">
-                                <p>৳4999</p>
+                                <p>4999</p>
                                 <p><del>৳5199</del></p>
                             </div>
                             <button>Add to cart</button>
@@ -346,7 +344,7 @@
                                 <img src="images/tws3e.png">
                             <h4>TWS 3e</h4>
                             <div class="price d-flex justfify-content-evenly">
-                                <p>৳2999</p>
+                                <p>2999</p>
                                 <p><del>৳3299</del></p>
                             </div>
                             <button>Add to cart</button>
@@ -357,7 +355,7 @@
                                 <img src="images/kieslect_actor.png">
                             <h4>Kieslect Actor</h4>
                             <div class="price d-flex justfify-content-evenly">
-                                <p>৳9099</p>
+                                <p>9099</p>
                                 <p><del>৳12999</del></p>
                             </div>
                             <button>Add to cart</button>
@@ -424,6 +422,7 @@
                     </div>
                 </div>
           </div>
+    <script src=js/cart.js></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

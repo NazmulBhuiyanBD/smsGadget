@@ -98,7 +98,11 @@
             <div class="modal-body">
                 <!-- Container to display cart items -->
                 <div id="cart-items"></div>
+<<<<<<< HEAD
                 <button type="button" class="btn btn-primary w-100 mt-3" id="checkout-btn">Checkout</button>
+=======
+                <button type="button" class="btn btn-primary w-100 mt-3">Checkout</button>
+>>>>>>> 368fc48cf749344b166f47e433149e608388b116
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -107,7 +111,10 @@
     </div>
 </div>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 368fc48cf749344b166f47e433149e608388b116
 
     <!-- header element -->
        <div class="container-fluid navbar shadow-sm">

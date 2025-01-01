@@ -101,6 +101,6 @@ document.querySelector('#checkout-btn').addEventListener('click', function () {
     const totalPrice = cartItems.reduce((total, item) => total + parseFloat(item.price.replace('$', '')), 0);
 
     // Send data to checkout page (either through form or URL)
-    const checkoutUrl = `php/checkout.php?cart_data=${encodeURIComponent(cartData)}&total_price=${totalPrice}`;
+    const checkoutUrl = `userDash.php?cart_data=${encodeURIComponent(cartData)}&total_price=${totalPrice}`;
     window.location.href = checkoutUrl; // Redirect to checkout page
 });

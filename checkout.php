@@ -1,6 +1,5 @@
 <?php
 require "php/conn.php";
-require "php/userInfo.php";
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
@@ -23,8 +22,8 @@ if (isset($_GET['cart_data']) && isset($_GET['total_price'])) {
     // }
     // echo '<p>Total: $' . $total_price . '</p>';
 }
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,7 +51,7 @@ if (isset($_GET['cart_data']) && isset($_GET['total_price'])) {
             <button class="MenuButton d-flex align-items-center " onclick="Dashboard()"><span class="material-symbols-outlined menuLogo">
                 dashboard
             </span> <p>Dashboard</p></button>
-            <button class="MenuButton d-flex align-items-center " onclick="Profile()"><span class="material-symbols-outlined menuLogo">
+            <button class="MenuButton d-flex align-items-center " onclick="Products()"><span class="material-symbols-outlined menuLogo">
             update
             </span> <p>Update Profile</p></button>
             <button class="MenuButton d-flex align-items-center " onclick="Orders()"><span class="material-symbols-outlined menuLogo">
@@ -81,92 +80,22 @@ if (isset($_GET['cart_data']) && isset($_GET['total_price'])) {
             <div class="LeftpanelOption">
                     <!-- Dashboard  -->
                         <div class="dashboard">
-                            <div class="card-header">
-                                <h3 class="text-center">User Information</h3>
-                            </div>
-                            <div class="card-body d-flex justify-content-center p-3 mt-3">
-                                <table>
-                                    <tr>
-                                        <td><strong>ID:</strong></td>
-                                        <td><?php echo htmlspecialchars($user['id']); ?></td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Name:</strong></td>
-                                        <td><?php echo htmlspecialchars($user['name']); ?></td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Phone Number:</strong> </td>
-                                        <td><?php echo htmlspecialchars($user['phoneNumber']); ?></td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Created Account:</strong> </td>
-                                        <td><?php echo htmlspecialchars($user['created_at']); ?></td>
-                                    </tr>
-                                    
-                                </table>
-                            </div>
+
                         </div>
 
                     <!-- update profile  -->
                     <div class="update">
 
                     </div>
-                    <div class="order">                  
-                        <h3>Your Cart</h3>
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Product Name</th>
-                                <th scope="col">Price</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            <?php
-                                if (!empty($cart_items)) {
-                                    $ct = 1;
-                                    echo '<form method="POST" action="process_order.php">'; // Form submission to "process_order.php"
-                                    echo '<table class="table">';
-                                    foreach ($cart_items as $item) {
-                                        $name = htmlspecialchars($item['name']);
-                                        $price = htmlspecialchars($item['price']);
-                                        echo '<tr>';
-                                        echo '<th scope="row">' . $ct . '</th>';
-                                        echo '<td>' . $name . '</td>';
-                                        echo '<td>$' . $price . '</td>';
-                                        echo '</tr>';
-
-                                        // Hidden inputs for each item
-                                        echo '<input type="hidden" name="items[' . $ct . '][name]" value="' . $name . '">';
-                                        echo '<input type="hidden" name="items[' . $ct . '][price]" value="' . $price . '">';
-
-                                        $ct++;
-                                    }
-
-                                    // Total row
-                                    echo '<tr>';
-                                    echo '<th scope="row">' . $ct . '</th>';
-                                    echo '<td>Total:</td>';
-                                    echo '<td>$' . htmlspecialchars($total_price) . '</td>';
-                                    echo '</tr>';
-
-                                    // Hidden input for total price
-                                    echo '<input type="hidden" name="total_price" value="' . htmlspecialchars($total_price) . '">';
-
-                                    echo '</table>';
-                                    echo '<button type="submit" class="btn btn-primary">Buy Now</button>';
-                                    echo '</form>';
-                                } else {
-                                    echo '<p>You Did Not Select Any Product</p>';
-                                }
-                            ?>
-
-
-                            </tbody>
-                        </table>
-
+                    <div class="order">
+                        <?php
+                         echo '<h3>Your Cart</h3>';
+                         foreach ($cart_items as $item) {
+                             echo '<p>' . $item['name'] . ' - ' . $item['price'] . '</p>';
+                         }
+                         echo '<p>Total: $' . $total_price . '</p>';
+                        ?>
                     </div>
-
                     <!-- complain  -->
                     <div class="feedback">
                     <form action="php/feedback.php" method="POST">

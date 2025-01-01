@@ -1,5 +1,16 @@
 <?php
 require "php/conn.php";
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+$isUser = isset($_SESSION['user_id'])?? false;
+if(!$isUser)
+{
+    header("Location: /smsgadget/index.php");
+}
+
+
 $ct=0;
 // for product list
 $sqlp="select * from products";

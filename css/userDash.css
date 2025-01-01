@@ -100,11 +100,34 @@
     margin: 50px;
     padding:5px;
 }
-
-
+/* dashboard  */
+.dashboard
+{
+    width: 100%;
+    box-shadow: #3C3C52;
+}
+.card-header h3
+{
+text-align: center;
+}
+table, td {
+    border: 1px solid gray;
+    padding: 5px;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 50%;
+  }
+/* order  */
+.order
+{
+    
+}
 /* feedback */
 .feedback
 {
+    display: none;
     padding: 10px;
 
 }

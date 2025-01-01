@@ -18,6 +18,7 @@
     }
 
     $isUser = isset($_SESSION['user_id'])?? false;
+
    if(!$isUser):
     ?>
     <!-- Login modal -->
@@ -131,7 +132,7 @@
                         <?php
                         if($isUser):
                         ?>
-                        <a class="d-flex align-items-center link-underline link-underline-opacity-0 link-dark" href="adminDash.php">
+                        <a class="d-flex align-items-center link-underline link-underline-opacity-0 link-dark" href="userDash.php">
                             <span class="material-symbols-outlined">
                             person
                             </span>

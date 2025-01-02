@@ -76,6 +76,11 @@ function Feedback()
     expenses.style.display='none';
     feedback.style.display='block';
 }
+
+function setOrderId(orderId) {
+    document.getElementById('orderId').value = orderId;
+}
+
 function confirmLogout() {
     // Show confirmation alert
     const userConfirmed = confirm("Are you sure you want to log out?");

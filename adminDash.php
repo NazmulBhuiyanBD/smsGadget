@@ -114,10 +114,6 @@ $resultFeedback=$conn->query($sqlFeedback);
             <div class="modal-body">
                 <form action="php/addOrder.php" method="POST" enctype="multipart/form-data">
                     <div class="mb-3">
-                        <label class="form-label">ProductId</label>
-                        <input type="number" class="form-control" id="ProductId" name="ProductId" required>
-                    </div>
-                    <div class="mb-3">
                         <label class="form-label">Status</label>
                         <select class="form-select" name="status" required>
                             <!-- <option >Open this select menu</option> -->
@@ -130,12 +126,8 @@ $resultFeedback=$conn->query($sqlFeedback);
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Quantity</label>
-                        <input type="number" class="form-control" id="quantity" name="quantity" required>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Description</label>
-                        <input type="text" class="form-control" id="description" name="description">
+                        <label class="form-label">Product Name</label>
+                        <input type="text" class="form-control" id="productName" name="productName">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Price</label>
@@ -149,6 +141,37 @@ $resultFeedback=$conn->query($sqlFeedback);
           </div>
         </div>
     </div>
+
+    <!-- update order status modal  -->
+    <div class="modal fade" id="UpdateOrderStatus" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Update Order Status</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="php/updateOrder.php" method="POST">
+                    <input type="hidden" name="orderId" id="orderId" value="">
+                    <div class="mb-3">
+                        <label class="form-label">Status</label>
+                        <select class="form-select" name="status" required>
+                            <option value="processing" selected>Processing</option>
+                            <option value="courier">Courier</option>
+                            <option value="cancel">Cancel</option>
+                            <option value="refund">Refund</option>
+                            <option value="delivered">Delivered</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update Status</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
       <!-- main content  -->
     <div class="content d-flex">
         <!-- left side admin panel  -->
@@ -299,33 +322,38 @@ $resultFeedback=$conn->query($sqlFeedback);
                         <thead>
                             <tr>
                                 <th scope="col">OrderID</th>
-                                <th scope="col">ProductId</th>
                                 <th scope="col">Status</th>
-                                <th scope="col">Quantity</th>
-                                <th scope="col">Order Description</th>
+                                <th scope="col">Product Name</th>
                                 <th scope="col">Price</th>
+                                <th scope="col">Created</th>
                                 <th scope="col">Option</th>
                              </tr>
                         </thead>
                         <tbody>
-                            <?php
+                        <?php
                             if ($resultOr->num_rows > 0) {
-                             // Fetch and display each row of data
+                                // Fetch and display each row of data
                                 while ($row = $resultOr->fetch_assoc()) {
-                            echo "<tr>";
-                            echo "<td>" . htmlspecialchars($row['orderId']) . "</td>";
-                            echo "<td>" . htmlspecialchars($row['productId']) . "</td>";
-                            echo "<td>" . htmlspecialchars($row['status']) . "</td>";
-                            echo "<td>" . htmlspecialchars($row['quantity']) . "</td>";
-                            echo "<td>" . htmlspecialchars($row['OrderDescription']) . "</td>";
-                            echo "<td>$" . number_format($row['price'], 2) . "</td>";
-                            echo "<td class='OrderListOption d-flex'><button class='edit'>Edit</button>
-                        <button class='delete' onclick='OrderDelete(" . $row['orderId'] . ")'>Delete</button></td>";
-                            echo "</tr>";
+                                    echo "<tr>";
+                                    echo "<td>" . htmlspecialchars($row['orderId']) . "</td>";
+                                    echo "<td>" . htmlspecialchars($row['status']) . "</td>";
+                                    echo "<td>" . htmlspecialchars($row['product']) . "</td>";
+                                    echo "<td>$" . number_format($row['price'], 2) . "</td>";
+                                    echo "<td>" . htmlspecialchars($row['created_at']) . "</td>";
+                                    echo "<td class='OrderListOption d-flex'>
+                                        <button class='edit' type='button' data-bs-toggle='modal' 
+                                            data-bs-target='#UpdateOrderStatus' 
+                                            onclick='setOrderId(" . $row['orderId'] . ")'>
+                                            Update Status
+                                        </button>
+                                        <button class='delete' onclick='OrderDelete(" . $row['orderId'] . ")'>Delete</button>
+                                    </td>";
+                                    echo "</tr>";
+                                }
+                            } else {
+                                echo "<tr><td colspan='6'>No products found</td></tr>";
                             }
-                        } else {
-                        echo "<tr><td colspan='7'>No products found</td></tr>";
-                        }
+
                             ?>
                         </tbody>
                         </table>
@@ -363,13 +391,14 @@ $resultFeedback=$conn->query($sqlFeedback);
                             echo "<td>" . htmlspecialchars($row['status']) . "</td>";
                             echo "<td>" . htmlspecialchars($row['quantity']) . "</td>";
                             echo "<td>" . htmlspecialchars($row['OrderDescription']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['created_at']) . "</td>";
                             echo "<td>$" . number_format($row['price'], 2) . "</td>";
-                            echo "<td class='OrderListOption d-flex'><button class='edit'>Edit</button>
+                            echo "<td class='OrderListOption d-flex'><button class='edit'>Update</button>
                         <button class='delete' onclick='OrderDelete(" . $row['orderId'] . ")'>Delete</button></td>";
                             echo "</tr>";
                             }
                         } else {
-                        echo "<tr><td colspan='7'>No products found</td></tr>";
+                        echo "<tr><td colspan='6'>No products found</td></tr>";
                         }
                             ?>
                         </tbody>

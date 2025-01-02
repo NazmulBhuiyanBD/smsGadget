@@ -98,11 +98,7 @@
             <div class="modal-body">
                 <!-- Container to display cart items -->
                 <div id="cart-items"></div>
-<<<<<<< HEAD
                 <button type="button" class="btn btn-primary w-100 mt-3" id="checkout-btn">Checkout</button>
-=======
-                <button type="button" class="btn btn-primary w-100 mt-3">Checkout</button>
->>>>>>> 368fc48cf749344b166f47e433149e608388b116
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -111,10 +107,6 @@
     </div>
 </div>
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 368fc48cf749344b166f47e433149e608388b116
 
     <!-- header element -->
        <div class="container-fluid navbar shadow-sm">
@@ -272,7 +264,7 @@
                                 <img src="images/iqoo_13_alpha.png">
                                 <h4>iQOO 13</h4>
                                 <div class="price d-flex justfify-content-evenly">
-                                    <p>74,999</p>
+                                    <p>74999</p>
                                     <p><del>৳90,999</del></p>
                                 </div>
                                 <button>Add to cart</button>
@@ -283,7 +275,7 @@
                                 <img src="images/iqoo_neo_10.png">
                             <h4>iQOO Neo 10</h4>
                             <div class="price d-flex justfify-content-evenly">
-                                <p>45,000</p>
+                                <p>45000</p>
                                 <p><del>৳50,0000</del></p>
                             </div>
                             <button>Add to cart</button>
@@ -294,7 +286,7 @@
                                 <img src="images/vivo_v40_lite.png">
                             <h4>vivo V40 Lite</h4>
                             <div class="price d-flex justfify-content-evenly">
-                                <p>30,999</p>
+                                <p>31000</p>
                                 <p><del>৳35,000</del></p>
                             </div>
                             <button>Add to cart</button>
@@ -305,7 +297,7 @@
                                 <img src="images/Vivo_Y19s.png">
                             <h4>Vivo Y19s</h4>
                             <div class="price d-flex justfify-content-evenly">
-                                <p>11999</p>
+                                <p>12000</p>
                                 <p><del>৳12999</del></p>
                             </div>
                             <button>Add to cart</button>
@@ -330,7 +322,7 @@
                                 <img src="images/charger.png">
                                 <h4>vivo 10W Adapter</h4>
                                 <div class="price d-flex justfify-content-evenly">
-                                    <p>999</p>
+                                    <p>1000</p>
                                     <p><del>৳1299</del></p>
                                 </div>
                                 <button>Add to cart</button>
@@ -341,7 +333,7 @@
                                 <img src="images/twsair.png">
                             <h4>TWS air</h4>
                             <div class="price d-flex justfify-content-evenly">
-                                <p>4999</p>
+                                <p>5000</p>
                                 <p><del>৳5199</del></p>
                             </div>
                             <button>Add to cart</button>
@@ -352,7 +344,7 @@
                                 <img src="images/tws3e.png">
                             <h4>TWS 3e</h4>
                             <div class="price d-flex justfify-content-evenly">
-                                <p>2999</p>
+                                <p>3000</p>
                                 <p><del>৳3299</del></p>
                             </div>
                             <button>Add to cart</button>

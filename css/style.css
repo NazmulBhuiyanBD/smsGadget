@@ -20,7 +20,7 @@
 .logoimg img
 {
     background-size: cover;
-    height: 100px;
+    height: 40px;
     width: 100px;
     /* border-radius: 100%; */
 }
@@ -97,12 +97,13 @@
 }
 .categoriesHeader
 {
-    background:linear-gradient(to right, #6366B5 , #4A4983);
+    background:linear-gradient(to right, #0069B4 , #02416e);
     border: none;
     border-radius: 5px 5px 0px 0px;
     font-size: 20px;
     font-weight: 700;
     text-align: center;
+    color: white;
 }
 .categoryItems
 {
@@ -142,7 +143,7 @@
 }
 .newArrivalHead button
 {
-    background-color: #4A4983;
+    background-color: #08385a;
     font-size: 16px;
     font-weight: 700;
     padding: 4px 12px;
@@ -171,7 +172,7 @@
 }
 .newProducts button
 {
-    background-color: #4A4983;
+    background-color: #012138;
     font-size: 16px;
     font-weight: 700;
     padding: 4px 12px;
@@ -184,7 +185,7 @@
 
 .footerElement
 {
-    background-color: #3c3c52;
+    background-color: #012138;
     color: white;
 }
 .footerElement ul
@@ -201,6 +202,6 @@
 {
     border-top: 1px solid white;
     height: 50px;
-    background-color: #3c3c52;
+    background-color: #012138;
     color: white;
 }

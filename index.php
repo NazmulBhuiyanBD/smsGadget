@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SMS GADGET</title>
-    <link rel="icon" href="images/logo.png" type="image/x-icon">
+    <title>vivo Bangladesh</title>
+    <link rel="icon" href="images/logo1.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -405,8 +405,8 @@
                         <div class="col-lg-3 col-6">
                             <ul>
                                 <li><h3>Stay Connected</h3></li>
-                                <li>SMS Gadget</li>
-                                <li>contact@smsgadget.com</li>
+                                <li>IUBAT</li>
+                                <li>contact@iubat.com</li>
                                 <li>09678-664664</li>
                             </ul>
                         </div>
@@ -418,7 +418,7 @@
           <div class="footerBottom">
                 <div class="container-fluid">
                     <div class="container justfify-content-center align-items-center">
-                        <p class="mt-2">©2024 SMS Gadget All rights reserved</p>
+                        <p class="mt-2">©2024 IUBAT Students All rights reserved</p>
                     </div>
                 </div>
           </div>

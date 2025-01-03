@@ -30,8 +30,8 @@ if (isset($_GET['cart_data']) && isset($_GET['total_price'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sms Gadget</title>
-    <link rel="icon" href="images/logo.png" type="image/x-icon">
+    <title>vivo Bangladesh</title>
+    <link rel="icon" href="images/logo1.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -114,18 +114,19 @@ if (isset($_GET['cart_data']) && isset($_GET['total_price'])) {
                     <div class="order">                  
                         <h3>Your Cart</h3>
                         <table class="table">
-                            <thead>
-                                <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Product Name</th>
-                                <th scope="col">Price</th>
-                                </tr>
-                            </thead>
-                            <tbody>
+                            
                             <?php
+                            echo '<thead>';
+                            echo '<tr>';
+                            echo '<th scope="col">#</th>';
+                            echo '<th scope="col">Product Name</th>';
+                            echo '<th scope="col">Price</th>';
+                            echo '</tr>';
+                            echo '</thead>';
+                            echo '<tbody>';
                                 if (!empty($cart_items)) {
                                     $ct = 1;
-                                    echo '<form method="POST" action="process_order.php">'; // Form submission to "process_order.php"
+                                    echo '<form method="POST" action="php/process_order.php">'; // Form submission to "process_order.php"
                                     echo '<table class="table">';
                                     foreach ($cart_items as $item) {
                                         $name = htmlspecialchars($item['name']);
@@ -151,9 +152,12 @@ if (isset($_GET['cart_data']) && isset($_GET['total_price'])) {
                                     echo '</tr>';
 
                                     // Hidden input for total price
-                                    echo '<input type="hidden" name="total_price" value="' . htmlspecialchars($total_price) . '">';
-
+                                    echo '<input type="hidden" name="total_price" value="' . htmlspecialchars($total_price) . '">';                      
                                     echo '</table>';
+                                        echo '<div class="form-floating mb-3">';
+                                        echo     '<input type="text" name="address" class="form-control" id="floatingInput" placeholder="Enter Your Address">';
+                                        echo     '<label for="floatingInput">Address</label>';
+                                        echo '</div>';
                                     echo '<button type="submit" class="btn btn-primary">Buy Now</button>';
                                     echo '</form>';
                                 } else {

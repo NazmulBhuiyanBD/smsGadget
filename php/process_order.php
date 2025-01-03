@@ -1,29 +1,35 @@
 <?php
+require "conn.php";
 
+// Handle form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Include database connection
-    require "conn.php";
+    // Check if items are provided
+    if (!empty($_POST['items']) && !empty($_POST['address'])) {
+        $address = $conn->real_escape_string($_POST['address']); // Sanitize the address input
 
-    // Retrieve posted data
-    $items = $_POST['items'];
-    $total_price = $_POST['total_price'];
+        foreach ($_POST['items'] as $item) {
+            $productName = $conn->real_escape_string($item['name']); // Sanitize product name
+            $price = $conn->real_escape_string($item['price']); // Sanitize price
+            $status = 'processing'; // Default status for new orders
 
-    // Insert data into the database
-    foreach ($items as $item) {
-        $name = $item['name'];
-        $price = $item['price'];
+            // Insert data into the database
+            $sql = "INSERT INTO orders (status, product, address, price) 
+                    VALUES ('$status', '$productName', '$address', '$price')";
 
-        // Prepare and execute SQL query
-        $stmt = $conn->prepare("INSERT INTO orders (product_name, product_price, total_price) VALUES (?, ?, ?)");
-        $stmt->bind_param("ssd", $name, $price, $total_price);
-
-        if (!$stmt->execute()) {
-            echo "Error: " . $stmt->error;
+            if (!$conn->query($sql)) {
+                // Log or display an error for failed inserts
+                echo "Error: " . $sql . "<br>" . $conn->error;
+            }
         }
-    }
 
-    echo "Order placed successfully!";
-    $stmt->close();
-    $conn->close();
+        // Redirect after processing all items
+        echo "Order added successfully!";
+        header("Location: /smsgadget/userDash.php");
+        exit;
+    } else {
+        echo "No items found in the cart or address is missing.";
+    }
 }
+
+$conn->close();
 ?>

@@ -22,7 +22,7 @@
     /* margin-top: 10px; */
     height: 100vh;
     width: 250px;
-    background-color: #3C3C52;
+    background-color: #012138;
     color: white;
 }
 .admin
@@ -104,7 +104,7 @@
     font-size: 14px;
     height: 50px;
     /* width: 950px; */
-    background-color:#3C3C52;
+    background-color:#154669;
     color: white;
     border-radius: 15px;
 }
@@ -123,7 +123,7 @@
     font-size: 30px;
     text-align: center;
     border-radius: 20px;
-    background-color: #3C3C52;
+    background-color: #012138;
     color: white;
     border: 2px solid black;
     height: 55px;
@@ -162,7 +162,7 @@
 }
 .productHeader button
 {
-    background-color: #3C3C52;
+    background-color: #012138;
     color: white;
     padding: 10px;
     border-radius: 15px;
@@ -186,7 +186,7 @@
 }
 .edit
 {
-    background-color: #3C3C52 ;
+    background-color: #012138 ;
     
 }
 .delete
@@ -210,7 +210,7 @@ table img
 }
 .orderHeader button
 {
-    background-color: #3C3C52;
+    background-color: #012138;
     color: white;
     padding: 10px;
     border-radius: 15px;
@@ -252,14 +252,28 @@ table img
 }
 
 /* profit  */
-.profit
+.employee
 {
     display: none;
+    margin: 10px 20px 20px 20px;
+}
+.employeeList
+{
+    overflow: scroll;
+    height:350px;
+    margin:0px 50px 0px 50px;
 }
 /* expenses  */
 .expenses
 {
 display: none;
+margin: 10px 20px 20px 20px;
+}
+.expensesList
+{
+    overflow: scroll;
+    height:350px;
+    margin:0px 50px 0px 50px;
 }
 
 /* feedback  */

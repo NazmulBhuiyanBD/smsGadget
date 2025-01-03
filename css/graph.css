@@ -1,0 +1,10 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    border: border-box;
+}
+.graph
+{
+    height: 700px;
+    width: 700px;
+}
